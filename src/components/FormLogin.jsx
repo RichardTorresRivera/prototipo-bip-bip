@@ -53,36 +53,60 @@ function FormLogin({ user }) {
   });
 
   return (
-    <form onSubmit={onSubmit}>
-      <h1>{user}</h1>
-      <label htmlFor="inputId">{labelId}</label>
-      <input
-        type="text"
-        id="inputId"
-        {...register("id", {
-          required: { value: true, message: `${labelId} es requerido` },
-        })}
-      />
-      {errors.id && <p className="text-danger">{errors.id.message}</p>}
-      <label htmlFor="inputPassword">Contrseña</label>
-      <input
-        type="password"
-        id="inputPassword"
-        {...register("password", {
-          required: {
-            value: true,
-            message: "Contraseña es requerida",
-          },
-        })}
-      />
-      {errors.password && (
-        <p className="text-danger">{errors.password.message}</p>
-      )}
-      <p>
-        ¿No tienes una cuenta?<a href={`/${rutaUser}/registro`}>Cree una</a>
-      </p>
-      <button type="submit">Ingresar</button>
-    </form>
+    <div className="container mt-4 px-3">
+      <form
+        onSubmit={onSubmit}
+        className="bg-light p-4 rounded shadow-sm"
+        style={{ maxWidth: "400px", margin: "0 auto" }}
+      >
+        <h1 className="text-center mb-4">{user}</h1>
+        <div className="mb-3">
+          <label htmlFor="inputId" className="form-label fw-bold">
+            {labelId}
+          </label>
+          <input
+            type="text"
+            id="inputId"
+            className={`form-control ${errors.id ? "is-invalid" : ""}`}
+            {...register("id", {
+              required: { value: true, message: `${labelId} es requerido` },
+            })}
+          />
+          {errors.id && (
+            <div className="invalid-feedback">{errors.id.message}</div>
+          )}
+        </div>
+        <div className="mb-3">
+          <label htmlFor="inputPassword" className="form-label fw-bold">
+            Contraseña
+          </label>
+          <input
+            type="password"
+            id="inputPassword"
+            className={`form-control ${errors.password ? "is-invalid" : ""}`}
+            {...register("password", {
+              required: { value: true, message: "Contraseña es requerida" },
+            })}
+          />
+          {errors.password && (
+            <div className="invalid-feedback">{errors.password.message}</div>
+          )}
+        </div>
+        <p className="text-center mt-3">
+          ¿No tienes una cuenta?{" "}
+          <a href={`/${rutaUser}/registro`} className="text-decoration-none">
+            Cree una
+          </a>
+        </p>
+        <button
+          type="submit"
+          className="btn btn-primary w-100 fw-bold"
+          style={{ fontSize: "1rem" }}
+        >
+          Ingresar
+        </button>
+      </form>
+    </div>
   );
 }
 

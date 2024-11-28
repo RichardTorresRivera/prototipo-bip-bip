@@ -23,15 +23,24 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
       {isMobile ? (
         <Rutas />
       ) : (
-        <div>
-          <h1>Web no disponible para este dispositivo</h1>
+        <div
+          class="d-flex justify-content-center align-items-center"
+          style={{ height: "100vh" }}
+        >
+          <div className="text-center">
+            <h1>Web no disponible para este dispositivo</h1>
+            <p class="lead">
+              Lo sentimos, esta página no es compatible con tu dispositivo. Por
+              favor, usa un dispositivo de pantalla pequeña.
+            </p>
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
