@@ -33,7 +33,7 @@ function App() {
         >
           <div className="text-center">
             <h1>Web no disponible para este dispositivo</h1>
-            <p class="lead">
+            <p className="lead">
               Lo sentimos, esta página no es compatible con tu dispositivo. Por
               favor, usa un dispositivo de pantalla pequeña.
             </p>
