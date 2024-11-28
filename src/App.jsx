@@ -28,7 +28,7 @@ function App() {
         <Rutas />
       ) : (
         <div
-          class="d-flex justify-content-center align-items-center"
+          className="d-flex justify-content-center align-items-center"
           style={{ height: "100vh" }}
         >
           <div className="text-center">
